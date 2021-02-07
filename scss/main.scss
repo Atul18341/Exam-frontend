@@ -13,9 +13,10 @@
   height: 100vh;
   width: 100%;
   background-image: linear-gradient(to right, $gradient__one, $gradient__one),
-    url(../img/bg1.jpg);
+    url("../img/bg1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  // background-size: cover;
   position: relative;
   background-attachment: fixed;
   clip-path: polygon(100% 0%, 100% 77%, 50% 100%, 0% 75%, 0 0);
@@ -32,29 +33,32 @@
     background: linear-gradient(to right, $gradient__two, $primary_color);
   }
   & .navbar {
-      &::before{
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        z-index: -1;
-        background: rgba(32, 32, 32, 0.431)
-      }
-      & button{
-          background-color: $primary_color;
-          height: 35px;
-          width: 35px;
-      }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(32, 32, 32, 0.479);
+    & button {
+      background-color: $primary_color;
+      height: 35px;
+      width: 35px;
+    }
     & a {
       font-family: "Roboto Mono", monospace;
       color: $main_color;
       font-weight: bold;
     }
-    & .nav-item a{
-       color: #000;
+    & .nav-item {
+      & .active {
+        color: $primary_color;
+      }
+      a {
+        color: $main_color;
+        transition: all 0.3s ease;
+        &:hover {
+          color: $primary_color;
+        }
+      }
     }
   }
   & .hero {
@@ -68,7 +72,7 @@
       width: 50%;
       & h1 {
         font-weight: bolder;
-        color: black;
+        color: #000;
       }
       & p {
         font-size: 1.2rem;
@@ -81,21 +85,25 @@
         a {
           @include btn;
           text-decoration: none;
+        }
+
+        & .btn__one {
+          color: #fff;
+          background: linear-gradient(to right, #db36a4b6, #f6ff00a9);
           transition: all 0.3s ease;
+
+          &:hover {
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+            background: transparent;
+          }
         }
-        & .btn__one{
-            color: #000;
-            background: $main_color; 
-            &:hover{
-                box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
-                background-color: transparent;
-                color: $main_color;
-            }    
-        }
-        & .btn__two:hover{
-            color: #000;
-            background: $main_color; 
-            box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+        & .btn__two {
+          transition: all 0.3s ease;
+
+          &:hover {
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #db36a4b6, #f6ff00a9);
+          }
         }
       }
     }
@@ -104,12 +112,12 @@
 
 //   .........Home page completed..........
 
-
-
-
 // .......media queries.........
-@media(max-width:760px){
-#hero-text{
+@media (max-width: 760px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  #hero-text {
     width: 100%;
-}
+  }
 }
