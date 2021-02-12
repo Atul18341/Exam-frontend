@@ -9,10 +9,35 @@
 
 //   .........Home page started..........
 
+.navbar {
+   background: rgba(0, 0, 0, 0.877);
+   & button {
+     background-color: $primary_color;
+     height: 35px;
+     width: 35px;
+   }
+   & a {
+     font-family: "Roboto Mono", monospace;
+     color: $main_color;
+     font-weight: bold;
+   }
+   & .nav-item {
+     & .active {
+       color: $primary_color;
+     }
+     a {
+       color: $main_color;
+       transition: all 0.3s ease;
+       &:hover {
+         color: $primary_color;
+       }
+     }
+   }
+ }
 .header {
-  height: 100vh;
+  height: 88.5vh;
   width: 100%;
-  background-image: linear-gradient(to right, $gradient__one, $gradient__one),
+  background-image: linear-gradient(to right, #0000006e, #4343438e),
     url("../img/bg1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -30,36 +55,7 @@
     right: 0;
     opacity: 0.5;
     z-index: -1;
-    background: linear-gradient(to right, $gradient__two, $primary_color);
-  }
-  & .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(32, 32, 32, 0.479);
-    & button {
-      background-color: $primary_color;
-      height: 35px;
-      width: 35px;
-    }
-    & a {
-      font-family: "Roboto Mono", monospace;
-      color: $main_color;
-      font-weight: bold;
-    }
-    & .nav-item {
-      & .active {
-        color: $primary_color;
-      }
-      a {
-        color: $main_color;
-        transition: all 0.3s ease;
-        &:hover {
-          color: $primary_color;
-        }
-      }
-    }
+    background: linear-gradient(to right, #000000, #434343);
   }
   & .hero {
     width: 100%;
@@ -72,7 +68,7 @@
       width: 50%;
       & h1 {
         font-weight: bolder;
-        color: #000;
+        color: $main_color;
       }
       & p {
         font-size: 1.2rem;

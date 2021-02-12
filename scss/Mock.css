@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.mockHeader {
+  padding: 15px 0px;
+}
+
+.mockHeader .mockHeader__container {
+  border: 8px solid gainsboro;
+  border-radius: 13px;
+  background-color: #1a1717;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  padding: 1rem;
+  margin: 10px auto;
+}
+
+.mockHeader .mockHeader__container .img__wrapper img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.mockHeader .mockHeader__container .img__wrapper p {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 0%;
+  padding-top: 4px;
+}
+
+.mockHeader .mockHeader__container .info__wrappers {
+  margin: 16px 0 16px 15px;
+  width: 100%;
+}
+
+.mockHeader .mockHeader__container .info__wrappers .info__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin-top: 5px;
+  padding: 5px 18px;
+}
+
+.mockHeader .mockHeader__container .info__wrappers .info__wrapper p {
+  margin-bottom: 0%;
+  color: #686767;
+}
+
+.mockHeader .mockHeader__container .info__wrappers .info__wrapper a {
+  text-decoration: none;
+  padding: 3px 27px;
+  outline: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: #0d660d;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 2.6px 2px 0px #1ea81e;
+          box-shadow: 3px 2.6px 2px 0px #1ea81e;
+}
+
+@media (max-width: 1200px) {
+  .mockHeader .mockHeader__container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .mockHeader .mockHeader__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mockHeader .mockHeader__container .img__wrapper {
+    margin: auto;
+  }
+  .mockHeader .mockHeader__container .info__wrappers {
+    margin: 0%;
+  }
+}
+/*# sourceMappingURL=Mock.css.map */
