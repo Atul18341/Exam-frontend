@@ -15,6 +15,7 @@
 }
 
 .paperHero .paperHero__content {
+  width: 50vw;
   background-color: rgba(197, 189, 189, 0.726);
   padding: 0.8rem 4.5rem;
   border-radius: 0.8rem;
@@ -81,8 +82,9 @@
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   .paperHero .paperHero__content {
+    width: auto;
     padding: 0.8rem 2rem;
   }
   .paperHero .paperHero__content #score {
