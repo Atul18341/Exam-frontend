@@ -2,76 +2,87 @@
 @import "../scss/import";
 @import "../scss/mixin";
 
-.mockHeader{
-    padding: 15px 0px;
-    & .mockHeader__container{
-        border: 8px solid gainsboro;
-        border-radius: 13px;
-        background-color: rgb(26, 23, 23);
-        display: flex;
-        width: 60%;
-        padding: 1rem;
-        margin: 10px auto;
-        & .img__wrapper{
-            & img{
-               width: 150px;
-               height: 150px;
-                object-fit: cover;
-                border: 5px solid white;
-                border-radius: 10px;
-            }
-            & p{
-                text-align: center;
-                color: white;
-                font-weight: 700;
-                margin-bottom: 0%;
-                padding-top: 4px;
-            }
-        }
-        & .info__wrappers{
-            margin: 16px 0 16px 15px;
-            width: 100%;
-            & .info__wrapper{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: white;
-                margin-top: 5px;
-                padding: 5px 18px;
-                & p{
-                    margin-bottom: 0%;
-                    color: rgb(104, 103, 103);
-                }
-                & a{
-                    text-decoration: none;
-                    padding: 3px 27px;
-                    outline: none;
-                    color: $main_color;
-                    font-size: 0.8rem;
-                    font-weight: 400;
-                    background-color: rgb(13, 102, 13);
-                    border-radius: 10px;
-                    box-shadow: 3px 2.6px 2px 0px #1ea81e
-                }
-            }
-        }
+.mockHeader {
+  padding: 10px 0px;
+  & .mockHeader__container {
+    border-radius: 13px;
+    background-color: rgb(26, 23, 23);
+    display: flex;
+    width: 60%;
+    padding: 1rem;
+    margin: 25px auto;
+    transition: all 0.3s ease;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    &:hover {
+      transform: translateY(-8px);
     }
+    & .img__wrapper {
+      & img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 5px solid white;
+        border-radius: 10px;
+      }
+      & p {
+        text-align: center;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 0%;
+        padding-top: 4px;
+      }
+    }
+    & .info__wrappers {
+      margin: 16px 0 16px 15px;
+      width: 100%;
+      height: 125px;
+      overflow-y: auto;
+      & .info__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        margin-top: 5px;
+        padding: 5px 18px;
+        & p {
+          margin-bottom: 0%;
+          color: rgb(104, 103, 103);
+        }
+        & a {
+          text-decoration: none;
+          padding: 3px 27px;
+          outline: none;
+          color: $main_color;
+          font-size: 0.8rem;
+          font-weight: 400;
+          background-color: rgb(13, 102, 13);
+          border-radius: 10px;
+          box-shadow: 3px 2.6px 2px 0px #1ea81e;
+        }
+      }
+    }
+  }
 }
 
 // media queries
-@media(max-width:1200px){
-    .mockHeader .mockHeader__container{
-        width: 100%;
-    }
+@media (max-width: 1200px) {
+  .mockHeader .mockHeader__container {
+    width: 100%;
+  }
 }
-@media(max-width:500px){
-    .mockHeader .mockHeader__container{
-        flex-direction: column;
-        & .img__wrapper{
-            margin: auto;
-        }
-        & .info__wrappers{
-            margin: 0%;
-        }
+@media (max-width: 500px) {
+  .mockHeader .mockHeader__container {
+    flex-direction: column;
+    & .img__wrapper {
+      margin: auto;
+      & img {
+        width: 100%;
+      }
     }
+    & .info__wrappers {
+      margin: 0%;
+    }
+  }
 }
