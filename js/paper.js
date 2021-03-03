@@ -59,14 +59,14 @@
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: " 1>> Who invented JavaScript?",
+      question: " 1>> Find the numbers of prime factors of the number 180?",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich",
-        d:'aaaaa'
+        a: "20",
+        b: "18",
+        c: "15",
+        d:'25'
       },
-      correctAnswer: "c"
+      correctAnswer: "b"
     },
     {
       question: " 2>> Which one of these is a JavaScript package manager?",
@@ -74,17 +74,17 @@
         a: "Node.js",
         b: "TypeScript",
         c: "npm",
-        d: "npm"
+        d: "nodescript"
       },
       correctAnswer: "c"
     },
     {
-      question: "3>> Which tool can you use to ensure code quality?",
+      question: "3>> What is your name?",
       answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
+        a: "Yash",
+        b: "Atul",
+        c: "Shivam",
+        d: "Not a releavent question"
       },
       correctAnswer: "d"
     }
