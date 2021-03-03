@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .navbar {
   position: -webkit-sticky;
   position: sticky;

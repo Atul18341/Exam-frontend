@@ -1,86 +1,95 @@
-const questionDb = [
-  {
-    question: "1) Find the number of prime factors of 180",
-    a: "20",
-    b: "18",
-    c: "15",
-    d: "25",
-    ans: "ans2",
-  },
-  {
-    question: "2) What is 2 + 2",
-    a: "2",
-    b: "5",
-    c: "4",
-    d: "25",
-    ans: "ans3",
-  },
-  {
-    question: "3) What is full form of JS",
-    a: "JavaScript",
-    b: "JavaString",
-    c: "Jstrong",
-    d: "JString",
-    ans: "ans1",
-  },
-  {
-    question: "4) What is your Name",
-    a: "Shivam",
-    b: "Yash",
-    c: "Atul",
-    d: "Not a releavent question",
-    ans: "ans4",
-  },
-];
-const question = document.querySelector(".question");
-const option1 = document.querySelector("#option1");
-const option2 = document.querySelector("#option2");
-const option3 = document.querySelector("#option3");
-const option4 = document.querySelector("#option4");
-const submit = document.querySelector("#submit");
-const answers = document.querySelectorAll(".answers");
-const scoresec = document.querySelector('#score');
+(function(){
+  function buildQuiz(){
 
-let questionCount = 0;
-let score = 0;
+    const output = [];
 
-const loadQuestions = () => {
-  const questionList = questionDb[questionCount];
-  question.innerHTML = questionList.question;
-  option1.innerHTML = questionList.a;
-  option2.innerHTML = questionList.b;
-  option3.innerHTML = questionList.c;
-  option4.innerHTML = questionList.d;
-};
-loadQuestions();
-const getAnswer = () => {
-  let answer;
-  answers.forEach((ans) => {
-    if (ans.checked) {
-      answer = ans.id;
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        const answers = [];
+
+        for(letter in currentQuestion.answers){
+
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    let numCorrect = 0;
+
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      if(userAnswer === currentQuestion.correctAnswer){
+        numCorrect++;
+
+        answerContainers[questionNumber].style.color = 'green';
+      }
+
+      else{
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    resultsContainer.innerHTML = `You scored ${numCorrect} out of ${myQuestions.length} in the quiz👏`;
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: " 1>> Who invented JavaScript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich",
+        d:'aaaaa'
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: " 2>> Which one of these is a JavaScript package manager?",
+      answers: {
+        a: "Node.js",
+        b: "TypeScript",
+        c: "npm",
+        d: "npm"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "3>> Which tool can you use to ensure code quality?",
+      answers: {
+        a: "Angular",
+        b: "jQuery",
+        c: "RequireJS",
+        d: "ESLint"
+      },
+      correctAnswer: "d"
     }
-  });
-  return answer;
-};
-const dissellectAll = () =>{
-    answers.forEach((ans)=>{
-        ans.checked = false;
-    })
-}
-submit.addEventListener("click", () => {
-  const answerClicked = getAnswer();
-  // console.log(answerClicked);
-  if (answerClicked === questionDb[questionCount].ans) {
-    score++;
-  }
-  questionCount++;
-  dissellectAll();
-  if (questionCount < questionDb.length) {
-    loadQuestions();
-  }else{
-      scoresec.innerHTML= `<h3> You scored ${score}/${questionDb.length} in the test</h3>
-      <button class='btn' onclick='location.reload()'> Resatart </button>
-      `;
-      scoresec.classList.remove('scorePart');
-  }
-});
+  ];
+
+  buildQuiz();
+  submitButton.addEventListener('click', showResults);
+})();
